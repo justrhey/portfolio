@@ -48,7 +48,7 @@ export default function Sidebar({ open, onNavigate }) {
         ))}
       </nav>
 
-      <p className="side-footer">Placeholder footer · © Your Name</p>
+      <p className="side-footer">© 2026 Justine Rhey</p>
     </aside>
   );
 }
