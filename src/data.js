@@ -74,7 +74,7 @@ export const topProjects = [
     title: "BMW Unofficial",
     desc: "An unofficial BMW landing page — a cinematic, scroll-driven experience built with GSAP animations.",
     tags: ["GSAP", "React", "Vite"],
-    url: "https://bmw-unofficial.vercel.app/",
+    url: "https://unofficial-bmw.vercel.app/",
     logo: asset("bmw-logo.png"),
     cta: "Visit site",
   },
@@ -113,7 +113,7 @@ export const projects = [
     desc: "An unofficial BMW landing page — a cinematic, scroll-driven experience built with GSAP animations.",
     tags: ["GSAP", "React", "Vite"],
     year: "2025",
-    url: "https://bmw-unofficial.vercel.app/",
+    url: "https://unofficial-bmw.vercel.app/",
   },
   {
     name: "EHR Blockchain",
