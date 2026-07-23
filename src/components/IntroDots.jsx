@@ -2,11 +2,9 @@ import { useEffect, useRef } from "react";
 import { intro } from "../data.js";
 
 const MONO = "ui-monospace, 'SF Mono', Menlo, Consolas, monospace";
-const GRID = 6;   // sampling spacing → dot density
-const DUR = 1100; // assemble duration (ms)
+const GRID = 6;
+const DUR = 1100;
 
-// Particle headline: text is rasterized to an offscreen buffer, every ink
-// pixel becomes a target dot, and dots ease in from scattered start points.
 export default function IntroDots({ color }) {
   const wrapRef = useRef(null);
   const canvasRef = useRef(null);
@@ -16,7 +14,7 @@ export default function IntroDots({ color }) {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const ink = color || getComputedStyle(document.body).color || "#050505";
+    const ink = color || "#050505";
 
     let W = 0, H = 0;
     let dots = [];
@@ -85,7 +83,7 @@ export default function IntroDots({ color }) {
 
     const resize = () => {
       const w = wrap.clientWidth;
-      const h = Math.round(Math.min(220, Math.max(150, w * 0.34)));
+      const h = Math.round(Math.min(200, Math.max(140, w * 0.28)));
       if (w === W && h === H) return;
       const dpr = window.devicePixelRatio || 1;
       canvas.width = w * dpr;
@@ -104,20 +102,17 @@ export default function IntroDots({ color }) {
     ro.observe(wrap);
     resize();
     canvas.addEventListener("click", reassemble);
-    wrap.addEventListener("mouseenter", reassemble);
 
     return () => {
       ro.disconnect();
       cancelAnimationFrame(raf);
       canvas.removeEventListener("click", reassemble);
-      wrap.removeEventListener("mouseenter", reassemble);
     };
   }, []);
 
   return (
     <div className="intro-dots" ref={wrapRef}>
       <canvas ref={canvasRef} role="img" aria-label={intro.tagline} title="Click to re-assemble" />
-      <p className="intro-dots__meta">{intro.meta}</p>
     </div>
   );
 }

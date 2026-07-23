@@ -7,7 +7,7 @@ export const profile = {
   photo: asset("profile.png"),
   name: "Justine Rhey",
   stats: [
-    { value: "8", label: "projects" },
+    { value: "7", label: "projects" },
     { value: "Full-stack", label: "developer" },
   ],
   link: "github.com/justrhey",
@@ -37,6 +37,7 @@ export const tabs = [
 export const about = [
   { icon: "briefcase", text: "Full-stack developer — Rust, React & everything in between." },
   { icon: "pin", text: "Based in the Philippines." },
+  { icon: "user", text: "Gender — all/in." },
   { icon: "signal", text: "Open to freelance & collaboration." },
 ];
 
@@ -44,7 +45,7 @@ export const about = [
 export const intro = {
   headline: ["FULL-STACK", "DEVELOPER"],
   tagline: "Full-stack developer — Rust, React & everything in between.",
-  meta: "Philippines · 08 Projects · Open to work",
+  meta: "Philippines · 07 Projects · Open to work",
 };
 
 export const skills = [
@@ -76,6 +77,7 @@ export const topProjects = [
     tags: ["GSAP", "React", "Vite"],
     url: "https://unofficial-bmw.vercel.app/",
     logo: asset("bmw-logo.png"),
+    image: asset("projects/bmw.png"),
     cta: "Visit site",
   },
   {
@@ -86,6 +88,7 @@ export const topProjects = [
     tags: ["Django REST", "React 19", "MapLibre GL", "PostGIS"],
     url: "https://co-map.vercel.app/",
     logo: asset("co-map-logo.png"),
+    image: asset("projects/co-map.png"),
     cta: "Visit site",
   },
   {
@@ -107,6 +110,7 @@ export const projects = [
     tags: ["Django REST", "React 19", "MapLibre GL", "PostGIS"],
     year: "2025",
     url: "https://co-map.vercel.app/",
+    image: asset("projects/co-map.png"),
   },
   {
     name: "BMW Unofficial",
@@ -114,6 +118,7 @@ export const projects = [
     tags: ["GSAP", "React", "Vite"],
     year: "2025",
     url: "https://unofficial-bmw.vercel.app/",
+    image: asset("projects/bmw.png"),
   },
   {
     name: "EHR Blockchain",
@@ -128,6 +133,7 @@ export const projects = [
     tags: ["Next.js 16", "React 19", "Three.js", "GSAP", "Lenis"],
     year: "2026",
     url: "https://ve-lour.vercel.app/",
+    image: asset("projects/velour.png"),
   },
   {
     name: "Fresh Phones PH",
@@ -135,13 +141,7 @@ export const projects = [
     tags: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4"],
     year: "2025",
     url: "https://freshphonesph.vercel.app/",
-  },
-  {
-    name: "DM ARC Construction",
-    desc: "Premium static landing page with an animated WebGL hero, smooth scroll-reveal sections, and a refined editorial type system.",
-    tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "WebGL"],
-    year: "2025",
-    url: "https://dmarc-construction.vercel.app/",
+    image: asset("projects/fresh-phones.png"),
   },
   {
     name: "Cassie",
@@ -165,19 +165,22 @@ export const experience = [
     role: "VetLevel",
     org: "TambayanPH · Feb 2025–Present",
     desc: "Facebook automation platform for veterinary businesses — lead capture and messaging flows built with n8n and Claude Code.",
+    icon: "message",
   },
   {
     role: "RealmMLP → Notion Sync",
     org: "TambayanPH · 2025",
     desc: "Reverse-engineered an undocumented API and wired it into Notion as a live two-way integration.",
+    icon: "sync",
   },
   {
     role: "DNS Automation SDK",
     org: "CallHounds Global / Virspacio · Internship",
     desc: "Java Swing SDK for ICMP/TCP network monitoring and DNS automation across company infrastructure.",
+    icon: "terminal",
   },
 ];
 
 export const education = [
-  { role: "School / University", org: "Degree · placeholder years" },
+  { role: "BS Information Technology", org: "University · 2022–2026" },
 ];

@@ -5,19 +5,12 @@ import { profile, tabs } from "../data.js";
 export default function ProfileHeader() {
   return (
     <section className="pcard profile-head">
-      <div className="cover">
-        <button className="cover__edit icon-btn" aria-label="Edit cover photo">
-          <Icon name="camera" />
-        </button>
-      </div>
+      <div className="cover" />
 
       <div className="profile-head__body">
         <div className="profile-head__id">
           <div className="avatar avatar--lg">
             <img className="avatar__img" src={profile.photo} alt={profile.name} />
-            <button className="avatar__edit icon-btn" aria-label="Edit profile photo">
-              <Icon name="camera" />
-            </button>
           </div>
 
           <div className="profile-head__meta">
@@ -39,13 +32,10 @@ export default function ProfileHeader() {
             <Icon name="mail" className="icon" />
             Contact me
           </NavLink>
-          <a className="btn btn--secondary" href="#">
+          <a className="btn btn--secondary" href={profile.linkHref} target="_blank" rel="noreferrer">
             <Icon name="download" className="icon" />
             Download CV
           </a>
-          <button className="btn btn--secondary btn--icon" aria-label="More">
-            <Icon name="dots" className="icon" />
-          </button>
         </div>
 
         <nav className="tabs" aria-label="Profile content">

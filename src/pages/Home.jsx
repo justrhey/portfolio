@@ -3,6 +3,7 @@ import ProfileHeader from "../components/ProfileHeader.jsx";
 import ProjectStack from "../components/ProjectStack.jsx";
 import GithubContrib from "../components/GithubContrib.jsx";
 import IntroDots from "../components/IntroDots.jsx";
+import Icon from "../components/Icon.jsx";
 import { experience } from "../data.js";
 
 export default function Home() {
@@ -11,9 +12,7 @@ export default function Home() {
       <ProfileHeader />
 
       <Section title="Intro">
-        <div className="blueprint">
-          <IntroDots color="#1c3f9e" />
-        </div>
+        <IntroDots />
       </Section>
 
       <Section title="Top projects" action={{ label: "All projects", to: "/projects" }} bare>
@@ -24,7 +23,9 @@ export default function Home() {
         <ul className="timeline">
           {experience.map((item, i) => (
             <li className="tl-item" key={i}>
-              <div className="tl-logo" />
+              <div className="tl-logo">
+                <Icon name={item.icon} />
+              </div>
               <div className="tl-body">
                 <h3 className="tl-role">{item.role}</h3>
                 <p className="tl-org">{item.org}</p>

@@ -13,18 +13,6 @@ const PATHS = {
       <path d="M3 9h18" />
     </>
   ),
-  bell: (
-    <>
-      <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
-      <path d="M13.7 21a2 2 0 0 1-3.4 0" />
-    </>
-  ),
-  search: (
-    <>
-      <circle cx="11" cy="11" r="7" />
-      <path d="m21 21-4.3-4.3" />
-    </>
-  ),
   user: (
     <>
       <circle cx="12" cy="8" r="4" />
@@ -43,30 +31,11 @@ const PATHS = {
       <path d="m3 7 9 6 9-6" />
     </>
   ),
-  camera: (
-    <>
-      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-      <circle cx="12" cy="13" r="4" />
-    </>
-  ),
   download: (
     <>
       <path d="M12 3v12" />
       <path d="m7 12 5 5 5-5" />
       <path d="M5 21h14" />
-    </>
-  ),
-  dots: (
-    <>
-      <circle cx="5" cy="12" r="1.6" />
-      <circle cx="12" cy="12" r="1.6" />
-      <circle cx="19" cy="12" r="1.6" />
-    </>
-  ),
-  edit: (
-    <>
-      <path d="M12 20h9" />
-      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z" />
     </>
   ),
   pin: (
@@ -87,6 +56,27 @@ const PATHS = {
     <>
       <path d="M22 10 12 5 2 10l10 5 10-5z" />
       <path d="M6 12v5c0 1 3 2 6 2s6-1 6-2v-5" />
+    </>
+  ),
+  message: (
+    <>
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      <path d="M8 9h8" />
+      <path d="M8 13h6" />
+    </>
+  ),
+  sync: (
+    <>
+      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+      <path d="M21 3v5h-5" />
+      <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+      <path d="M3 21v-5h5" />
+    </>
+  ),
+  terminal: (
+    <>
+      <path d="m5 8 4 4-4 4" />
+      <path d="M12 16h7" />
     </>
   ),
 };

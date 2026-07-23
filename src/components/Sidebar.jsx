@@ -1,10 +1,31 @@
+import { useRef, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import Icon from "./Icon.jsx";
 import { profile, navItems, shortcuts } from "../data.js";
 
 export default function Sidebar({ open, onNavigate }) {
+  const touchStartX = useRef(0);
+
+  const handleTouchStart = useCallback((e) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback((e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    // Swipe left >50px → close drawer
+    if (dx < -50 && open) {
+      onNavigate();
+    }
+  }, [open, onNavigate]);
+
   return (
-    <aside className={`sidebar${open ? " is-open" : ""}`} id="sidebar" aria-label="Sidebar">
+    <aside
+      className={`sidebar${open ? " is-open" : ""}`}
+      id="sidebar"
+      aria-label="Sidebar"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <NavLink className="side-item side-item--profile" to="/" onClick={onNavigate}>
         <span className="avatar avatar--sm">
           <img className="avatar__img" src={profile.photo} alt={profile.name} />

@@ -6,7 +6,7 @@ import { about } from "../data.js";
 export default function About() {
   return (
     <div className="page">
-      <Section title="About" action="edit">
+      <Section title="About">
         <ul className="detail-list">
           {about.map((item) => (
             <li className="detail" key={item.text}>
@@ -17,7 +17,7 @@ export default function About() {
         </ul>
       </Section>
 
-      <Section title="Skills" action="edit">
+      <Section title="Skills">
         <SkillsGraph />
       </Section>
     </div>

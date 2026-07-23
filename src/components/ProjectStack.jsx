@@ -1,74 +1,52 @@
-import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 import { topProjects } from "../data.js";
 
-const POS = ["left", "front", "right"];
+const FALLBACK_ACCENT = "#5b6b8c";
 
 export default function ProjectStack() {
-  // Visual order: [left, front, right]
-  const byPos = Object.fromEntries(topProjects.map((p) => [p.pos, p]));
-  const [deck, setDeck] = useState([byPos.left, byPos.front, byPos.right]);
-
-  const bringToFront = (i) => {
-    if (i === 1) return; // already at front
-    setDeck((prev) => {
-      const next = [...prev];
-      [next[1], next[i]] = [next[i], next[1]];
-      return next;
-    });
-  };
+  // Center the #1 project on load.
+  const initial = Math.max(0, topProjects.findIndex((p) => p.badge?.startsWith("#1")));
 
   return (
-    <div className="stack">
-      {deck.map((p, i) => {
-        const pos = POS[i];
-        const isFront = pos === "front";
-        return (
-          <article
-            className={`stack-card stack-card--${pos}`}
-            key={p.title}
-            role={isFront ? undefined : "button"}
-            tabIndex={isFront ? undefined : 0}
-            aria-label={isFront ? undefined : `Bring ${p.title} to front`}
-            onClick={() => bringToFront(i)}
-            onKeyDown={(e) => {
-              if (!isFront && (e.key === "Enter" || e.key === " ")) {
-                e.preventDefault();
-                bringToFront(i);
-              }
-            }}
-          >
-            <div className="ribbon">{p.badge}</div>
-
-            <div className="stack-card__head">
-              <span className={`app-icon${p.logo ? " app-icon--img" : ""}`} aria-hidden="true">
-                {p.logo ? <img src={p.logo} alt="" /> : p.title.charAt(0)}
+    <div className="pcarousel">
+      <Swiper
+        modules={[EffectCoverflow, Pagination]}
+        effect="coverflow"
+        grabCursor
+        centeredSlides
+        slidesPerView="auto"
+        initialSlide={initial}
+        coverflowEffect={{ rotate: 40, stretch: 0, depth: 100, modifier: 1, slideShadows: true }}
+        pagination={{ clickable: true }}
+      >
+        {topProjects.map((p) => (
+          <SwiperSlide key={p.title}>
+            <a className="pcarousel__link" href={p.url} target="_blank" rel="noreferrer">
+              {p.image ? (
+                <img className="pcarousel__img" src={p.image} alt={p.title} />
+              ) : (
+                <span className="pcarousel__fallback" style={{ "--accent": FALLBACK_ACCENT }} aria-hidden="true">
+                  {p.title.charAt(0)}
+                </span>
+              )}
+              <span className="pcarousel__cap">
+                <span className="pcarousel__kicker">{p.badge}</span>
+                <span className="pcarousel__title">{p.title}</span>
+                <span className="pcarousel__cta">
+                  {p.cta}
+                  <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M7 17 17 7M9 7h8v8" />
+                  </svg>
+                </span>
               </span>
-              <h3 className="stack-card__title">{p.title}</h3>
-            </div>
-
-            <p className="stack-card__desc">{p.desc}</p>
-
-            <div className="stack-card__tags">
-              {p.tags.slice(0, 3).map((t) => (
-                <span className="pill" key={t}>{t}</span>
-              ))}
-            </div>
-
-            <a
-              className="stack-card__cta"
-              href={p.url}
-              target="_blank"
-              rel="noreferrer"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {p.cta}
-              <svg viewBox="0 0 24 24" className="cta-arrow" aria-hidden="true">
-                <path d="M7 17 17 7M9 7h8v8" />
-              </svg>
             </a>
-          </article>
-        );
-      })}
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 }
