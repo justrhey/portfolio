@@ -3,6 +3,7 @@ import ProfileHeader from "../components/ProfileHeader.jsx";
 import ProjectStack from "../components/ProjectStack.jsx";
 import GithubContrib from "../components/GithubContrib.jsx";
 import IntroDots from "../components/IntroDots.jsx";
+import ContactSection from "../components/ContactSection.jsx";
 import Icon from "../components/Icon.jsx";
 import { experience } from "../data.js";
 
@@ -12,7 +13,7 @@ export default function Home() {
       <ProfileHeader />
 
       <Section title="Intro">
-        <IntroDots />
+        <IntroDots color="#e2e2e2" />
       </Section>
 
       <Section title="Top projects" action={{ label: "All projects", to: "/projects" }} bare>
@@ -37,6 +38,8 @@ export default function Home() {
       </Section>
 
       <GithubContrib />
+
+      <ContactSection />
     </div>
   );
 }

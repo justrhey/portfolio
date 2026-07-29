@@ -6,7 +6,9 @@ function buildGraph() {
   const nodes = [];
   const links = [];
   const byId = {};
-  const color = { center: "#0b1b3a" };
+  const color = { center: "#ffffff" };
+  // Monochrome ramp — groups distinguished by brightness, not hue.
+  const GRAYS = ["#ffffff", "#ededed", "#dcdcdc", "#cccccc", "#e4e4e4", "#f4f4f4"];
 
   const add = (id, group, kind) => {
     const n = { id, label: id, group, kind, x: 0, y: 0, vx: 0, vy: 0 };
@@ -16,8 +18,8 @@ function buildGraph() {
   };
 
   add(skillGraph.center, "center", "center");
-  skillGraph.groups.forEach((g) => {
-    color[g.name] = g.color;
+  skillGraph.groups.forEach((g, gi) => {
+    color[g.name] = GRAYS[gi % GRAYS.length];
     add(g.name, g.name, "hub");
     links.push({ a: skillGraph.center, b: g.name });
     g.skills.forEach((s) => {
@@ -161,7 +163,7 @@ export default function SkillsGraph() {
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
       // faint bitmap dot-grid backdrop
-      ctx.fillStyle = "rgba(110,122,145,0.10)";
+      ctx.fillStyle = "rgba(226,226,226,0.08)";
       const gs = 15;
       for (let y = gs; y < H; y += gs) {
         for (let x = gs; x < W; x += gs) {
@@ -179,8 +181,8 @@ export default function SkillsGraph() {
       links.forEach((l) => {
         const active = hoverId && (l.a === hoverId || l.b === hoverId);
         ctx.strokeStyle = active
-          ? "rgba(24,119,242,0.55)"
-          : hoverId ? "rgba(180,188,200,0.22)" : "rgba(150,160,178,0.5)";
+          ? "rgba(226,226,226,0.6)"
+          : hoverId ? "rgba(180,180,180,0.18)" : "rgba(150,150,150,0.45)";
         ctx.lineWidth = active ? 1.6 : 1;
         ctx.beginPath();
         ctx.moveTo(l.na.x, l.na.y);
@@ -192,11 +194,11 @@ export default function SkillsGraph() {
       nodes.forEach((n) => {
         const focused = !hoverId || neighbors[hoverId].has(n.id);
         const r = R[n.kind];
-        drawNode(n, r, color[n.group] || "#1877f2", focused ? 1 : 0.28);
-        const showLabel = n.kind !== "skill" || (hoverId && neighbors[hoverId].has(n.id));
+        drawNode(n, r, color[n.group] || "#e2e2e2", focused ? 1 : 0.28);
+        const showLabel = true;
         if (showLabel) {
-          ctx.globalAlpha = focused ? 1 : 0.28;
-          ctx.fillStyle = n.kind === "skill" ? "#3a4356" : "#111a2b";
+          ctx.globalAlpha = focused ? 1 : 0.32;
+          ctx.fillStyle = n.kind === "skill" ? "#cfcfcf" : "#ffffff";
           ctx.font = FONT[n.kind];
           ctx.textAlign = "center";
           ctx.textBaseline = "top";

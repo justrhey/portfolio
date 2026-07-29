@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Icon from "./Icon.jsx";
 import Sidebar from "./Sidebar.jsx";
+import BackgroundVideo from "./BackgroundVideo.jsx";
 
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,6 +22,8 @@ export default function Layout() {
 
   return (
     <>
+      <BackgroundVideo />
+
       <button
         className="mobile-menu-btn icon-btn"
         onClick={() => setSidebarOpen((v) => !v)}

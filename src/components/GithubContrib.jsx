@@ -27,7 +27,7 @@ export default function GithubContrib() {
               cx={Math.floor(i / 7) * STEP + STEP / 2}
               cy={(i % 7) * STEP + STEP / 2}
               r={RADIUS[lv]}
-              fill="#1877f2"
+              fill="#e2e2e2"
               fillOpacity={OPACITY[lv]}
             />
           ))}

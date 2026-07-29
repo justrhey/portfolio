@@ -4,10 +4,10 @@ const asset = (p) => import.meta.env.BASE_URL + p;
 
 export const profile = {
   initials: "JR",
-  photo: asset("profile.png"),
+  photo: asset("ascii-art.svg"),
   name: "Justine Rhey",
   stats: [
-    { value: "7", label: "projects" },
+    { value: "8", label: "projects" },
     { value: "Full-stack", label: "developer" },
   ],
   link: "github.com/justrhey",
@@ -45,7 +45,7 @@ export const about = [
 export const intro = {
   headline: ["FULL-STACK", "DEVELOPER"],
   tagline: "Full-stack developer — Rust, React & everything in between.",
-  meta: "Philippines · 07 Projects · Open to work",
+  meta: "Philippines · 08 Projects · Open to work",
 };
 
 export const skills = [
@@ -142,6 +142,14 @@ export const projects = [
     year: "2025",
     url: "https://freshphonesph.vercel.app/",
     image: asset("projects/fresh-phones.png"),
+  },
+  {
+    name: "DM ARC Construction",
+    desc: "Premium static landing page with an animated WebGL hero, smooth scroll-reveal sections, and a refined editorial type system.",
+    tags: ["React 19", "TypeScript", "Vite", "Tailwind CSS v4", "WebGL"],
+    year: "2025",
+    url: "https://dmarc-construction.vercel.app/",
+    image: asset("projects/dmarc.png"),
   },
   {
     name: "Cassie",
