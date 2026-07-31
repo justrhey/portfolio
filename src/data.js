@@ -19,6 +19,7 @@ export const navItems = [
   { icon: "user", label: "About", to: "/about" },
   { icon: "grid", label: "Projects", to: "/projects" },
   { icon: "briefcase", label: "Experience", to: "/experience" },
+  { icon: "award", label: "Certificates", to: "/certificates" },
   { icon: "mail", label: "Contact", to: "/contact" },
 ];
 
@@ -191,4 +192,21 @@ export const experience = [
 
 export const education = [
   { role: "BS Information Technology", org: "University · 2022–2026" },
+];
+
+export const certificates = [
+  {
+    title: "Python for Beginners with Hands-On Labs",
+    issuer: "Tutorials Dojo",
+    date: "July 31, 2026",
+    image: asset("certificates/tutorials-dojo-python-for-beginners.png"),
+    file: asset("certificates/tutorials-dojo-python-for-beginners.pdf"),
+  },
+  {
+    title: "Developing Generative Artificial Intelligence Solutions",
+    issuer: "Tutorials Dojo · AWS DTP",
+    date: "July 31, 2026",
+    image: asset("certificates/tutorials-dojo-developing-generative-ai-solutions.png"),
+    file: asset("certificates/tutorials-dojo-developing-generative-ai-solutions.pdf"),
+  },
 ];
