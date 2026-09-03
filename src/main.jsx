@@ -6,7 +6,7 @@ import "@fontsource/space-mono/400.css";
 import "@fontsource/space-mono/700.css";
 import "@fontsource/pixelify-sans/400.css";
 import "@fontsource/pixelify-sans/700.css";
-import "@fontsource/silkscreen";
+import "@fontsource/silkscreen/400.css";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

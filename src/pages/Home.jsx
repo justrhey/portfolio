@@ -1,45 +1,40 @@
-import Section from "../components/Section.jsx";
-import ProfileHeader from "../components/ProfileHeader.jsx";
-import ProjectStack from "../components/ProjectStack.jsx";
-import GithubContrib from "../components/GithubContrib.jsx";
-import IntroDots from "../components/IntroDots.jsx";
-import ContactSection from "../components/ContactSection.jsx";
-import Icon from "../components/Icon.jsx";
-import { experience } from "../data.js";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Hero from "../components/Hero.jsx";
+import Showcase from "../components/Showcase.jsx";
+import About from "./About.jsx";
+import Certificates from "./Certificates.jsx";
+import Contact from "./Contact.jsx";
 
+// Single-page site: hero + numbered showcase (projects & experience) + about /
+// skills + certificates, ending in the contact footer. The nav pill scrolls
+// between these anchors instead of routing to separate pages.
 export default function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const sectionId = location.state?.sectionId;
+    if (!sectionId) return;
+
+    const frame = requestAnimationFrame(() => {
+      const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth";
+      const target = sectionId === "top" ? document.documentElement : document.getElementById(sectionId);
+      if (sectionId === "top") window.scrollTo({ top: 0, behavior });
+      else target?.scrollIntoView({ behavior, block: "start" });
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [location.key, location.state]);
+
   return (
-    <div className="page">
-      <ProfileHeader />
-
-      <Section title="Intro">
-        <IntroDots color="#e2e2e2" />
-      </Section>
-
-      <Section title="Top projects" action={{ label: "All projects", to: "/projects" }} bare>
-        <ProjectStack />
-      </Section>
-
-      <Section title="Client work" action={{ label: "Full experience", to: "/experience" }}>
-        <ul className="timeline">
-          {experience.map((item, i) => (
-            <li className="tl-item" key={i}>
-              <div className="tl-logo">
-                <Icon name={item.icon} />
-              </div>
-              <div className="tl-body">
-                <h3 className="tl-role">{item.role}</h3>
-                <p className="tl-org">{item.org}</p>
-                <p className="tl-desc">{item.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <GithubContrib />
-
-      <ContactSection />
+    <div className="page-home">
+      <Hero />
+      <div id="projects" className="anchor"><Showcase /></div>
+      <div id="about" className="anchor"><About /></div>
+      <div id="certificates" className="anchor"><Certificates /></div>
+      <footer id="contact" className="anchor site-footer"><Contact /></footer>
     </div>
   );
 }

@@ -6,6 +6,7 @@ export const profile = {
   initials: "JR",
   photo: asset("ascii-art.svg"),
   name: "Justine Rhey",
+  email: "justrhey.tambong@gmail.com",
   stats: [
     { value: "8", label: "projects" },
     { value: "Full-stack", label: "developer" },
@@ -25,8 +26,6 @@ export const navItems = [
 
 export const shortcuts = [
   { label: "GitHub", href: "https://github.com/justrhey" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Resume / CV", href: "#" },
 ];
 
 export const tabs = [
