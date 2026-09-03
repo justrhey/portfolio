@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1120" viewBox="0 0 800 1120">
+  <rect width="800" height="1120" fill="#120d0b"/>
+  <rect x="24" y="24" width="752" height="1072" rx="22" fill="#120d0b" stroke="#f26a16" stroke-width="8"/>
+  <text x="400" y="160" text-anchor="middle" fill="#f26a16" font-family="monospace" font-size="28" letter-spacing="5">JRT / PORTFOLIO</text>
+  <text x="400" y="500" text-anchor="middle" fill="#24150f" stroke="#f26a16" stroke-width="3" font-family="Arial, sans-serif" font-size="260" font-weight="800">JR</text>
+  <line x1="90" y1="650" x2="710" y2="650" stroke="#69402e" stroke-width="3"/>
+  <text x="400" y="730" text-anchor="middle" fill="#eeeae4" font-family="Arial, sans-serif" font-size="38" font-weight="700">JUSTINE RHEY TAMBONG</text>
+  <text x="400" y="792" text-anchor="middle" fill="#d69a79" font-family="monospace" font-size="24">FULL-STACK DEVELOPER</text>
+  <rect x="90" y="880" width="620" height="76" fill="#f26a16"/>
+  <text x="400" y="929" text-anchor="middle" fill="#160d08" font-family="monospace" font-size="24" font-weight="700">JUSTRHEY.DEV</text>
+  <text x="400" y="1030" text-anchor="middle" fill="#8d7467" font-family="monospace" font-size="20">MANILA · PHILIPPINES</text>
+</svg>

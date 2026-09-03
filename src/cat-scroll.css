@@ -1,0 +1,44 @@
+.about-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.cat-scroll {
+  position: absolute;
+  right: clamp(-26px, 1vw, 16px);
+  bottom: -4px;
+  width: clamp(190px, 24vw, 330px);
+  pointer-events: none;
+}
+
+.cat-character {
+  position: relative;
+}
+
+.cat-character video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: translateZ(0);
+  will-change: contents;
+}
+
+.cat-speech {
+  position: absolute;
+  top: 18%;
+  right: 1%;
+  opacity: 1;
+  color: var(--acid);
+  font: 600 clamp(2rem, 4vw, 4rem)/1 var(--font-sans);
+  letter-spacing: -.08em;
+  transform: none;
+  transform-origin: left bottom;
+}
+
+@media (max-width: 760px) {
+  .cat-scroll {
+    right: -24px;
+    width: 250px;
+  }
+}

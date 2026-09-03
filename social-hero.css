@@ -1,0 +1,13 @@
+.hero{min-height:0;grid-template-columns:minmax(0,1fr) 310px;gap:24px;align-items:stretch;padding:42px 0;border-bottom:1px solid var(--line)}
+.hero-copy{padding:30px;border:1px solid #493126;background:#120d0b;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-copy:before{content:'@justrhey  ·  developer';display:block;color:#ffb078;font-size:10px;letter-spacing:.08em;margin-bottom:22px}
+.hero h1{font-size:clamp(2.6rem,5vw,5.6rem);line-height:.92}
+.lede{font-size:12px;line-height:1.7;margin:24px 0;max-width:430px}
+.hero-copy .text-link{align-self:flex-start;border:1px solid var(--acid);padding:10px 13px}
+.hero-art{min-height:350px;height:100%;border-radius:4px}
+.hero-art img{min-height:350px;object-position:center top}
+.hero-art:before{inset:auto 14px 14px auto;top:auto;left:auto;width:72px;height:72px;transform:none;border-color:#ff7a18;background:#0a0807;box-shadow:0 0 20px #ff7a1840,inset 0 0 0 4px #120c09}
+.hero-art:after{content:'●  ONLINE';right:auto;left:16px;bottom:15px;color:var(--acid)}
+.hero-copy:after{content:'04 PROJECTS     19 SKILLS     01 AVAILABLE';display:block;order:5;color:#8d7467;font-size:9px;letter-spacing:.08em;margin-top:28px;padding-top:15px;border-top:1px solid #493126}
+.work-section{padding-top:76px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding:26px 0 55px}.hero-art{min-height:260px;height:300px;order:-1}.hero-art img{min-height:300px}.hero-copy{padding:23px}.hero h1{font-size:clamp(2.5rem,13vw,4rem)}}
