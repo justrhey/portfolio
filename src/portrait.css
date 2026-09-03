@@ -1,0 +1,4 @@
+.hero-art img{display:block;width:100%;height:100%;min-height:425px;object-fit:cover;object-position:center top;filter:contrast(1.08)}
+.scanlines{z-index:1;background:repeating-linear-gradient(0deg,transparent 0 3px,#00000010 4px)}
+.art-label{z-index:2}
+@media(max-width:760px){.hero-art img{min-height:320px}}

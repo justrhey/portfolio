@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1120" viewBox="0 0 800 1120">
+  <rect width="800" height="1120" fill="#f1eee8"/>
+  <rect x="24" y="24" width="752" height="1072" rx="22" fill="#120d0b" stroke="#f26a16" stroke-width="8"/>
+  <rect x="24" y="24" width="752" height="118" rx="22" fill="#21120d"/>
+  <text x="66" y="92" fill="#d69a79" font-family="monospace" font-size="25" letter-spacing="4">PERSONAL PORTFOLIO</text>
+  <text x="705" y="92" text-anchor="end" fill="#d69a79" font-family="monospace" font-size="25">JRT</text>
+  <rect x="68" y="186" width="664" height="412" fill="#e9e5de"/>
+  <image href="/images/portrait-bitmap.png" x="68" y="186" width="300" height="412" preserveAspectRatio="xMidYMid slice"/>
+  <text x="404" y="238" fill="#f26a16" font-family="monospace" font-size="25" letter-spacing="2">01 / PROFILE</text>
+  <text x="400" y="347" fill="#120d0b" font-family="Arial, sans-serif" font-size="75" font-weight="700">Justine</text>
+  <text x="400" y="430" fill="#120d0b" font-family="Arial, sans-serif" font-size="75" font-weight="700">Rhey</text>
+  <text x="404" y="493" fill="#d5520c" font-family="monospace" font-size="24">FULL-STACK</text>
+  <text x="404" y="531" fill="#d5520c" font-family="monospace" font-size="24">DEVELOPER</text>
+  <text x="68" y="690" fill="#f26a16" font-family="monospace" font-size="24" letter-spacing="3">BUILDING USEFUL SOFTWARE</text>
+  <line x1="68" y1="730" x2="732" y2="730" stroke="#69402e" stroke-width="3"/>
+  <text x="68" y="794" fill="#e8e2dc" font-family="Arial, sans-serif" font-size="32" font-weight="700">JUSTINE RHEY TAMBONG</text>
+  <text x="68" y="846" fill="#a88d7e" font-family="monospace" font-size="22">@JUSTRHEY</text>
+  <rect x="68" y="900" width="664" height="74" fill="#f26a16"/>
+  <text x="400" y="948" text-anchor="middle" fill="#160d08" font-family="monospace" font-size="25" font-weight="700">ID · JR-2026-001</text>
+  <text x="68" y="1040" fill="#8d7467" font-family="monospace" font-size="20">MANILA · PHILIPPINES</text>
+</svg>
