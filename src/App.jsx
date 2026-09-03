@@ -3,13 +3,13 @@ import useEmblaCarousel from 'embla-carousel-react';
 import CatScrollSection from './CatScrollSection.jsx';
 
 const projects = [
-  { no: '01', mark: 'V', title: 'VÉLOUR', type: 'Editorial web / 2026', text: 'Premium wine showcase with a procedural 3D Bordeaux bottle, parallax storytelling, and a black-and-gold editorial direction.', tags: ['Next.js', 'Three.js', 'GSAP'], href: 'https://ve-lour.vercel.app/', tone: 'gold' },
-  { no: '02', mark: '⌖', title: 'CO—MAP', type: 'Civic technology / 2025', text: 'Community-powered complaint mapping with issue pins, 3D buildings, and gamified scoring for visible local action.', tags: ['Django REST', 'MapLibre', 'PostGIS'], href: 'https://co-map.vercel.app/', tone: 'blue' },
-  { no: '03', mark: '+', title: 'EHR BLOCKCHAIN', type: 'Health systems / 2024', text: 'Blockchain-notarized health records with field-level encryption, content hashing, and a verifiable version history.', tags: ['Rust', 'Actix-web', 'Soroban'], href: 'https://github.com/justrhey/capstone', tone: 'green' },
-  { no: '04', mark: '▯', title: 'FRESH PHONES PH', type: 'Commerce / 2025', text: 'A Y2K-inspired storefront for an iPhone reseller’s paluwagan installment program, built around clarity and trust.', tags: ['Next.js', 'TypeScript', 'Tailwind'], href: 'https://freshphonesph.vercel.app/', tone: 'pink' },
-  { no: '05', mark: 'D', title: 'DM ARC CONSTRUCTION', type: 'Brand website / 2025', text: 'A premium construction-services website with a WebGL backdrop, smooth reveals, and an editorial presentation of past work.', tags: ['React', 'Motion', 'WebGL'], href: 'https://dmarc-construction.vercel.app/', tone: 'gold' },
-  { no: '06', mark: 'C', title: 'CASSIE', type: 'Music platform / 2024', text: 'Music discovery and streaming with curated playlists, artist albums, Top 50 charts, and seamless audio playback.', tags: ['React', 'Node.js', 'Spotify API'], href: 'https://github.com/justinebacurin1927/Cassie', tone: 'blue' },
-  { no: '07', mark: 'T', title: 'TICKETING SYSTEM', type: 'Support platform / 2023', text: 'Support ticket management with role-based access, lifecycle workflows, priority queues, attachments, and live status updates.', tags: ['Spring Boot', 'React', 'PostgreSQL'], href: 'https://github.com/justrhey/capstone', tone: 'green' },
+  { no: '01', mark: 'H', logo: '/images/projects/huntly-logo.webp', image: '/images/projects/huntly.webp', title: 'HUNTLY', type: 'Career support SaaS / 2026', text: 'A job-search support platform that connects candidates with expert guidance, resume review, opportunity tracking, and a focused workspace.', tags: ['React', 'NestJS', 'PostgreSQL'], details: { focus: 'Human support for every job-search step', built: 'Role-based workspaces, CRM operations, coaching and application workflows', result: 'One secure place for candidates and their support team to keep opportunities moving' }, href: 'https://www.gohuntly.com/', tone: 'green' },
+  { no: '02', mark: '⌖', logo: '/images/projects/co-map-logo.webp', image: '/images/projects/co-map.webp', title: 'CO—MAP', type: 'Civic technology / 2025', text: 'Community-powered complaint mapping with issue pins, 3D buildings, and gamified scoring for visible local action.', tags: ['Django REST', 'MapLibre', 'PostGIS'], details: { focus: 'Make local issues visible', built: 'Interactive maps, reporting flows, geospatial data and scoring', result: 'One shared view for community reports and local action' }, href: 'https://co-map.vercel.app/', tone: 'blue' },
+  { no: '03', mark: '+', image: '/images/projects/ehr.webp', title: 'EHR BLOCKCHAIN', type: 'Health systems / 2024', text: 'Blockchain-notarized health records with field-level encryption, content hashing, and a verifiable version history.', tags: ['Rust', 'Actix-web', 'Soroban'], details: { focus: 'Trustworthy clinical records', built: 'Encrypted fields, content hashes and verifiable history', result: 'Auditable records without exposing sensitive patient data' }, href: 'https://github.com/justrhey/capstone', tone: 'green' },
+  { no: '04', mark: '▯', logo: '/images/projects/fresh-phones-logo.webp', image: '/images/projects/fresh-phones.webp', title: 'FRESH PHONES PH', type: 'Commerce / 2025', text: 'A Y2K-inspired storefront for an iPhone reseller’s paluwagan installment program, built around clarity and trust.', tags: ['Next.js', 'TypeScript', 'Tailwind'], details: { focus: 'Friendly installment shopping', built: 'Product discovery, plan education and conversion-focused flows', result: 'A clearer path from browsing to a trusted payment plan' }, href: 'https://freshphonesph.vercel.app/', tone: 'pink' },
+  { no: '05', mark: 'D', logo: '/images/projects/dmarc-logo.webp', image: '/images/projects/dmarc.webp', title: 'DM ARC CONSTRUCTION', type: 'Brand website / 2025', text: 'A premium construction-services website with a WebGL backdrop, smooth reveals, and an editorial presentation of past work.', tags: ['React', 'Motion', 'WebGL'], details: { focus: 'Turn completed work into trust', built: 'Project stories, service pages and an atmospheric WebGL layer', result: 'A premium digital presence grounded in real construction work' }, href: 'https://dmarc-construction.vercel.app/', tone: 'gold' },
+  { no: '06', mark: 'C', image: '/images/projects/cassie.webp', title: 'CASSIE', type: 'Music platform / 2024', text: 'Music discovery and streaming with curated playlists, artist albums, Top 50 charts, and seamless audio playback.', tags: ['React', 'Node.js', 'Spotify API'], details: { focus: 'Simple music discovery', built: 'Playlists, artist pages, charts and continuous playback', result: 'A focused listening experience across discovery and library views' }, href: 'https://github.com/justinebacurin1927/Cassie', tone: 'blue' },
+  { no: '07', mark: 'T', image: '/images/projects/ticketing.webp', title: 'TICKETING SYSTEM', type: 'Support platform / 2023', text: 'Support ticket management with role-based access, lifecycle workflows, priority queues, attachments, and live status updates.', tags: ['Spring Boot', 'React', 'PostgreSQL'], details: { focus: 'Keep support work accountable', built: 'Role access, priority queues, attachments and status workflows', result: 'A single operational view from first report to resolution' }, href: 'https://github.com/justrhey/capstone', tone: 'green' },
 ];
 
 function PixelMark() { return <img className="brand-logo" src="/logo.png" alt="" aria-hidden="true" />; }
@@ -17,6 +17,7 @@ function PixelMark() { return <img className="brand-logo" src="/logo.png" alt=""
 export default function App() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center', duration: 34 });
   const [activeProject, setActiveProject] = useState(0);
+  const [flippedProject, setFlippedProject] = useState(null);
   const syncActiveProject = useCallback(() => {
     if (emblaApi) setActiveProject(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
@@ -58,6 +59,8 @@ export default function App() {
     };
   }, [emblaApi, syncActiveProject, updateCardOrbit]);
 
+  useEffect(() => setFlippedProject(null), [activeProject]);
+
   const getCardPosition = (index) => {
     const offset = (index - activeProject + projects.length) % projects.length;
     if (offset === 0) return 'active';
@@ -66,8 +69,12 @@ export default function App() {
     return 'hidden';
   };
   const selectProject = (index, position) => {
-    if (position === 'active') window.open(projects[index].href, '_blank', 'noopener,noreferrer');
-    else emblaApi?.scrollTo(index);
+    if (position !== 'active') {
+      emblaApi?.scrollTo(index);
+      return;
+    }
+    if (flippedProject === index) window.open(projects[index].href, '_blank', 'noopener,noreferrer');
+    else setFlippedProject(index);
   };
   const handleContactSubmit = (event) => {
     event.preventDefault();
@@ -121,25 +128,33 @@ export default function App() {
               const position = getCardPosition(index);
               return <div className={`project-slide is-${position}`} key={project.no}>
                 <button
-                  className={`project-card ${project.tone}`}
+                  className={`project-card ${project.tone}${flippedProject === index ? ' is-flipped' : ''}`}
                   type="button"
                   onClick={() => selectProject(index, position)}
-                  aria-label={`${project.title}: ${position === 'active' ? 'open project' : 'show project details'}`}
+                  aria-label={`${project.title}: ${position !== 'active' ? 'bring card forward' : flippedProject === index ? 'open project' : 'show project details'}`}
                 >
-                  <span className="project-card-head">
-                    <span className="project-avatar" aria-hidden="true">{project.mark}</span>
-                    <span className="project-author"><strong>{project.title}</strong><small>{project.type}</small></span>
-                    <span className="project-menu" aria-hidden="true">•••</span>
-                  </span>
-                  <span className="project-description">{project.text}</span>
-                  <span className="project-preview" aria-hidden="true">
-                    <span className="project-preview-mark">{project.mark}</span>
-                    <span className="project-tags">{project.tags.map((tag) => <i key={tag}>{tag}</i>)}</span>
-                  </span>
-                  <span className="project-stats"><span>Selected work</span><span>JRT · Portfolio</span></span>
-                  <span className="project-actions">
-                    <span>{position === 'active' ? 'Open project' : 'Bring forward'}</span>
-                    <span>View ↗</span>
+                  <span className="project-card-inner">
+                    <span className="project-face project-front">
+                      <span className="project-card-head">
+                        <span className={`project-avatar${project.logo ? ' has-logo' : ''}`} aria-hidden="true">{project.logo ? <img src={project.logo} alt="" /> : project.mark}</span>
+                        <span className="project-author"><strong>{project.title}</strong><small>{project.type}</small></span>
+                        <span className="project-menu" aria-hidden="true">•••</span>
+                      </span>
+                      <span className="project-description">{project.text}</span>
+                      <span className="project-preview">
+                        <img className="project-preview-image" src={project.image} alt={`${project.title} interface preview`} loading="lazy" />
+                        <span className="project-preview-label" aria-hidden="true"><i>Interface</i><b>{project.no} / 07</b></span>
+                      </span>
+                      <span className="project-stats"><span>Selected work</span><span>JRT · Portfolio</span></span>
+                      <span className="project-actions"><span>{position === 'active' ? 'Click for details' : 'Bring forward'}</span><span>Flip ↻</span></span>
+                    </span>
+                    <span className="project-face project-back">
+                      <span className="project-back-kicker">{project.no} / Project details</span>
+                      <strong className="project-back-title">{project.title}</strong>
+                      {Object.entries(project.details).map(([label, value]) => <span className="project-detail" key={label}><small>{label}</small><span>{value}</span></span>)}
+                      <span className="project-stack">{project.tags.join(' · ')}</span>
+                      <span className="project-back-action">Click again to open project <b>↗</b></span>
+                    </span>
                   </span>
                 </button>
               </div>;

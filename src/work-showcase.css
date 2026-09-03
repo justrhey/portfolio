@@ -71,28 +71,67 @@
   width: 302px;
   min-height: 340px;
   padding: 0;
-  overflow: hidden;
-  border: 1px solid #252a24;
+  overflow: visible;
+  border: 0;
   border-radius: 16px;
   flex-direction: column;
   color: #eef2ea;
-  background: #0d100d;
-  box-shadow: 0 20px 50px #0008;
+  background: transparent;
+  box-shadow: none;
   font: inherit;
   text-align: left;
   cursor: grab;
+  perspective: 1000px;
   transform: translateY(var(--orbit-y, 0)) rotate(var(--orbit-tilt, 0deg)) scale(var(--orbit-scale, .88));
   transform-origin: 50% 72%;
   will-change: transform;
+}
+
+.project-card-inner {
+  display: grid;
+  width: 100%;
+  min-height: 340px;
+  transform-style: preserve-3d;
+  transition: transform .65s cubic-bezier(.2, .78, .2, 1);
+}
+
+.project-card.is-flipped .project-card-inner {
+  transform: rotateY(180deg);
+}
+
+.project-face {
+  position: relative;
+  grid-area: 1 / 1;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #252a24;
+  border-radius: 16px;
+  background: #0d100d;
+  box-shadow: 0 20px 50px #0008;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transition: border-color .3s ease, box-shadow .3s ease;
+}
+
+.project-front {
+  display: flex;
+  flex-direction: column;
+  transform: rotateY(0deg) translateZ(1px);
+}
+
+.project-back {
+  display: flex;
+  padding: 22px 20px 18px;
+  flex-direction: column;
+  background: linear-gradient(145deg, #111610, #090b09 68%);
+  transform: rotateY(180deg) translateZ(1px);
 }
 
 .project-slide.is-active .project-card {
   cursor: pointer;
-  border-color: #3b4537;
 }
 
-.project-slide.is-active .project-card:hover {
+.project-slide.is-active .project-card:hover .project-face {
   border-color: #9cff2e73;
   box-shadow: 0 26px 60px #000a;
 }
@@ -115,6 +154,18 @@
   color: #0a0d09;
   background: var(--card-accent);
   font: 700 14px/1 Archivo, sans-serif;
+}
+
+.project-avatar.has-logo {
+  overflow: hidden;
+  border-color: #343a32;
+  background: #f1f3ed;
+}
+
+.project-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .project-author {
@@ -157,64 +208,57 @@
 
 .project-preview {
   position: relative;
-  display: flex;
   min-height: 142px;
-  padding: 16px;
   overflow: hidden;
   border-block: 1px solid #20251f;
-  align-items: end;
-  justify-content: space-between;
-  color: #778073;
-  background-color: #080a08;
-  background-image: radial-gradient(#9cff2e26 1px, transparent 1px);
-  background-size: 10px 10px;
-  font-size: 7px;
-  letter-spacing: .12em;
+  background: #080a08;
 }
 
 .project-preview::after {
   content: '';
   position: absolute;
-  width: 170px;
-  height: 170px;
-  top: -94px;
-  right: -68px;
-  border: 1px solid #9cff2e33;
-  border-radius: 50%;
+  inset: 0;
+  background: linear-gradient(180deg, #0506050d 30%, #050605e8 100%);
+  pointer-events: none;
 }
 
-.project-preview-mark {
-  display: grid;
-  width: 70px;
-  height: 70px;
-  place-items: center;
-  border: 1px solid #9cff2e55;
-  border-radius: 14px;
-  color: #9cff2e;
-  background: #10170d;
-  box-shadow: 12px 12px 0 #9cff2e0c;
-  font: 600 24px/1 Archivo, sans-serif;
+.project-preview-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(.72) contrast(1.03);
+  transition: filter .35s ease, transform .55s cubic-bezier(.2,.8,.2,1);
 }
 
-.project-tags {
-  position: relative;
-  z-index: 1;
+.project-slide.is-active .project-card:hover .project-preview-image {
+  filter: saturate(1) contrast(1.03);
+  transform: scale(1.035);
+}
+
+.project-preview-label {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 10px;
   display: flex;
-  max-width: 150px;
-  flex-wrap: wrap;
-  gap: 5px;
-  justify-content: flex-end;
+  padding: 5px 7px;
+  gap: 8px;
+  border: 1px solid #ffffff24;
+  border-radius: 999px;
+  color: #eef2ea;
+  background: #050605b8;
+  backdrop-filter: blur(7px);
+  font: 500 6px/1 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
-.project-tags i {
-  padding: 5px 7px;
-  border: 1px solid #2a3028;
-  border-radius: 999px;
-  color: #9aa394;
-  background: #0d100de6;
+.project-preview-label i {
+  color: var(--card-accent);
   font-style: normal;
-  letter-spacing: .04em;
-  text-transform: none;
 }
 
 .project-stats,
@@ -244,6 +288,66 @@
 
 .project-actions span:last-child { color: var(--card-accent); }
 
+.project-back-kicker {
+  color: var(--card-accent);
+  font: 500 7px/1 var(--font-mono);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.project-back-title {
+  margin: 15px 0 22px;
+  color: #eef2ea;
+  font: 600 24px/.95 var(--font-sans);
+  letter-spacing: -.05em;
+}
+
+.project-detail {
+  display: grid;
+  padding: 11px 0;
+  border-top: 1px solid #252b24;
+  grid-template-columns: 58px 1fr;
+  gap: 12px;
+}
+
+.project-detail small {
+  padding-top: 2px;
+  color: #70796d;
+  font: 500 7px/1.2 var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.project-detail > span {
+  color: #bdc5b9;
+  font: 400 10px/1.45 var(--font-sans);
+}
+
+.project-stack {
+  margin-top: auto;
+  padding-top: 15px;
+  color: #818a7e;
+  font: 500 7px/1.4 var(--font-mono);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.project-back-action {
+  display: flex;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px solid #252b24;
+  justify-content: space-between;
+  color: #dfe5dc;
+  font: 500 8px/1 var(--font-mono);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.project-back-action b {
+  color: var(--card-accent);
+}
+
 @media (max-width: 760px) {
   .work-section { padding: 82px 0 95px; }
   .work-section .section-heading { display: block; margin-bottom: 20px; }
@@ -251,11 +355,13 @@
   .project-deck { min-height: 360px; }
   .project-slide { flex-basis: 282px; padding-inline: 9px; }
   .project-card { width: 264px; min-height: 326px; }
+  .project-card-inner { min-height: 326px; }
   .project-preview { min-height: 126px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .project-slide { animation: none; }
   .project-slide,
-  .project-card { transition: none; }
+  .project-card,
+  .project-card-inner { transition: none; }
 }

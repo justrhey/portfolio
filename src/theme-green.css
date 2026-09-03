@@ -355,11 +355,17 @@ footer a:hover {
 .project-card.green,
 .project-card.pink {
   --card-accent: var(--acid);
-  border-color: var(--line-strong);
+  border-color: transparent;
   border-radius: var(--radius-lg);
   color: var(--ink);
+  background: transparent;
+  box-shadow: none;
+}
+
+.project-face {
+  border-color: var(--line-strong);
+  border-radius: var(--radius-lg);
   background: var(--surface-raised);
-  box-shadow: 0 20px 50px #0008;
 }
 
 .project-author strong {
