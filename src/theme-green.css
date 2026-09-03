@@ -221,21 +221,15 @@ footer a:hover {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: var(--surface);
+  background: url('/images/arko-cover.jpg') center 52% / cover no-repeat;
   box-shadow: none;
 }
 
 .profile-cover::after {
   content: '';
   position: absolute;
-  top: -18%;
-  right: -4%;
-  width: min(440px, 46vw);
-  aspect-ratio: 1;
-  opacity: .18;
-  background-image: radial-gradient(var(--acid) .8px, transparent .8px);
-  background-size: 8px 8px;
-  mask-image: radial-gradient(circle, #000 15%, transparent 68%);
+  inset: 0;
+  background: linear-gradient(90deg, rgba(3, 6, 4, .88), rgba(3, 6, 4, .54) 58%, rgba(3, 6, 4, .08));
   pointer-events: none;
 }
 
@@ -243,7 +237,7 @@ footer a:hover {
   position: relative;
   z-index: 1;
   margin-bottom: 18px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, .72);
   font-size: 10px;
   letter-spacing: .09em;
   text-transform: uppercase;
@@ -263,7 +257,7 @@ footer a:hover {
   position: relative;
   z-index: 1;
   max-width: 880px;
-  color: var(--ink);
+  color: #f4f4ef;
   font-size: clamp(3rem, 6.8vw, 6.7rem);
   font-weight: 500;
   line-height: .94;
