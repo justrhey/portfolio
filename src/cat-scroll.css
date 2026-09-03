@@ -28,13 +28,12 @@
   position: absolute;
   top: 18%;
   right: 1%;
-  opacity: 0;
+  opacity: 1;
   color: var(--acid);
   font: 600 clamp(2rem, 4vw, 4rem)/1 var(--font-sans);
   letter-spacing: -.08em;
-  transform: translateY(12px) scale(.9);
+  transform: none;
   transform-origin: left bottom;
-  will-change: opacity, transform;
 }
 
 @media (max-width: 760px) {
