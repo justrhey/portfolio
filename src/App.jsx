@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import CatScrollSection from './CatScrollSection.jsx';
 
 const projects = [
   { no: '01', mark: 'V', title: 'VÉLOUR', type: 'Editorial web / 2026', text: 'Premium wine showcase with a procedural 3D Bordeaux bottle, parallax storytelling, and a black-and-gold editorial direction.', tags: ['Next.js', 'Three.js', 'GSAP'], href: 'https://ve-lour.vercel.app/', tone: 'gold' },
@@ -74,8 +75,9 @@ export default function App() {
     const name = data.get('name');
     const email = data.get('email');
     const message = data.get('message');
+    const inquiry = data.get('inquiry');
     const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    const body = encodeURIComponent(`Project type: ${inquiry}\nName: ${name}\nEmail: ${email}\n\n${message}`);
     window.location.href = `mailto:justrhey.tambong@gmail.com?subject=${subject}&body=${body}`;
   };
 
@@ -145,19 +147,38 @@ export default function App() {
           </div>
         </div>
       </section>
-      <section className="about-section" id="about"><p className="eyebrow">03 / A LITTLE CONTEXT</p><div className="about-grid"><h2>Backend thinking.<br/><em>Frontend feeling.</em></h2><div><p>My work lives where systems and stories meet. I care about the quiet details: a useful error, a fast page, a data model that still makes sense six months later.</p><p>Currently exploring Rust, distributed systems, generative tools, and the space between technical precision and visual character.</p><a className="text-link" href="mailto:justrhey.tambong@gmail.com">Let’s make something useful <span>↗</span></a></div></div></section>
+      <section className="about-section" id="about"><p className="eyebrow">03 / A LITTLE CONTEXT</p><div className="about-grid"><h2>Backend thinking.<br/><em>Frontend feeling.</em></h2><div><p>My work lives where systems and stories meet. I care about the quiet details: a useful error, a fast page, a data model that still makes sense six months later.</p><p>Currently exploring Rust, distributed systems, generative tools, and the space between technical precision and visual character.</p><a className="text-link" href="mailto:justrhey.tambong@gmail.com">Let’s make something useful <span>↗</span></a></div></div><CatScrollSection /></section>
       <section className="contact-section" id="contact">
         <div className="contact-intro">
-          <p className="eyebrow">04 / YOUR TURN</p>
+          <p className="eyebrow">05 / YOUR TURN</p>
           <h2>Have a good problem?</h2>
           <p>Tell me what you’re working on, what you need, and where I can help.</p>
           <a className="contact-email" href="mailto:justrhey.tambong@gmail.com">justrhey.tambong@gmail.com <span>↗</span></a>
         </div>
         <form className="contact-form" onSubmit={handleContactSubmit}>
-          <label><span>Name</span><input type="text" name="name" autoComplete="name" placeholder="Your name" required /></label>
-          <label><span>Email</span><input type="email" name="email" autoComplete="email" placeholder="you@example.com" required /></label>
-          <label className="contact-message"><span>Message</span><textarea name="message" rows="5" placeholder="Tell me about your project..." required /></label>
-          <button type="submit">Send message <span>↗</span></button>
+          <fieldset className="contact-options">
+            <legend>What can I help with?</legend>
+            <label><input type="radio" name="inquiry" value="Website" defaultChecked /><span>Website</span></label>
+            <label><input type="radio" name="inquiry" value="AI system" /><span>AI system</span></label>
+            <label><input type="radio" name="inquiry" value="Automation" /><span>Automation</span></label>
+            <label><input type="radio" name="inquiry" value="Other" /><span>Other</span></label>
+          </fieldset>
+          <div className="contact-field">
+            <label htmlFor="contact-name">01 / Name</label>
+            <input id="contact-name" type="text" name="name" autoComplete="name" placeholder="Your name" required />
+          </div>
+          <div className="contact-field">
+            <label htmlFor="contact-email">02 / Email</label>
+            <input id="contact-email" type="email" name="email" autoComplete="email" placeholder="you@example.com" required />
+          </div>
+          <div className="contact-field contact-message">
+            <label htmlFor="contact-message">03 / Project</label>
+            <textarea id="contact-message" name="message" rows="4" placeholder="A short note about the idea, timeline, or problem..." required />
+          </div>
+          <div className="contact-submit-row">
+            <p id="contact-note">Opens a prefilled email draft · Usually replies within 1–2 days</p>
+            <button type="submit" aria-describedby="contact-note">Open email draft <span>↗</span></button>
+          </div>
         </form>
       </section>
     </main><footer><span>© 2026 JRT</span><span>BUILT WITH INTENTION / <a href="https://github.com/justrhey" target="_blank" rel="noreferrer">GITHUB ↗</a></span></footer>
