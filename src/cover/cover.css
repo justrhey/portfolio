@@ -1,0 +1,155 @@
+.cover-stage {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: clamp(14px, 2.4vw, 40px);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  width: clamp(210px, 22vw, 300px);
+  pointer-events: none;
+}
+
+.cover-bubble {
+  position: relative;
+  flex: 0 0 auto;
+  height: 98px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.cover-talk {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.cover-talk:focus-visible {
+  outline: 2px solid var(--acid);
+  outline-offset: 3px;
+}
+
+/* speech bubble */
+.cover-bubble-card {
+  position: absolute;
+  inset: 0 0 auto 0;
+  right: auto;
+  width: fit-content;
+  max-width: 100%;
+  z-index: 4;
+  pointer-events: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(6, 9, 6, .93);
+  backdrop-filter: blur(6px);
+  padding: 10px 32px 11px 12px;
+}
+
+.cover-bubble-text {
+  margin: 0;
+  color: #d7dcd2;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+.cover-caret {
+  display: inline-block;
+  width: 2px;
+  height: 12px;
+  margin-left: 2px;
+  vertical-align: -1px;
+  background: var(--acid);
+  animation: cover-blink .8s steps(1) infinite;
+}
+
+@keyframes cover-blink {
+  50% { opacity: 0; }
+}
+
+.cover-mute {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #6d7468;
+  cursor: pointer;
+  transition: color .18s;
+}
+
+.cover-mute:hover,
+.cover-mute:focus-visible {
+  color: var(--acid);
+}
+
+.cover-bubble-tail {
+  position: absolute;
+  left: 22px;
+  bottom: -5px;
+  width: 9px;
+  height: 9px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(6, 9, 6, .93);
+  transform: rotate(45deg);
+}
+
+.cover-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 780px) {
+  .cover-stage {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .cover-bubble {
+    height: 82px;
+  }
+}
+
+@media (max-width: 620px) {
+  .cover-stage {
+    margin-top: 16px;
+  }
+
+  .cover-bubble {
+    height: 76px;
+  }
+
+  .cover-bubble-card {
+    padding: 8px 28px 9px 10px;
+  }
+
+  .cover-bubble-text {
+    font-size: 11.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-caret {
+    animation: none;
+  }
+}

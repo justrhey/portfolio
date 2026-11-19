@@ -6,4 +6,5 @@ import './styles.css';
 import './jumbotron.css';
 import './work-showcase.css';
 import './theme-green.css';
+import './github-activity.css';
 createRoot(document.getElementById('root')).render(<React.StrictMode><SmoothScrollProvider><App /></SmoothScrollProvider></React.StrictMode>);

@@ -27,7 +27,7 @@
   max-width: 980px;
   margin: 0;
   color: #f1ede8;
-  font: 600 clamp(3.5rem, 7.4vw, 7.5rem)/.9 Archivo, sans-serif;
+  font: 600 clamp(3.5rem, 7.4vw, 7.5rem)/.9 Geist, sans-serif;
   letter-spacing: -.07em;
 }
 
@@ -88,7 +88,7 @@
 .profile-identity h2 {
   margin: 0 0 9px;
   color: #eeeae4;
-  font: 600 clamp(1.8rem, 3vw, 3rem)/1 Archivo, sans-serif;
+  font: 600 clamp(1.8rem, 3vw, 3rem)/1 Geist, sans-serif;
   letter-spacing: -.045em;
 }
 

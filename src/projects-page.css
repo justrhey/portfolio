@@ -1,0 +1,78 @@
+.projects-page-intro {
+  padding: 86px 0 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.projects-page-intro h1 {
+  margin: 0;
+  color: var(--ink);
+  font: 600 clamp(3.4rem, 8vw, 7rem)/.95 var(--font-sans);
+  letter-spacing: -.07em;
+}
+
+.projects-page-intro > p:last-child {
+  max-width: 530px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font: 400 14px/1.7 var(--font-sans);
+}
+
+.projects-page-grid {
+  display: grid;
+  padding: 42px 0 110px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 18px;
+}
+
+.projects-page-item { min-width: 0; }
+
+.projects-page-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #343c31;
+  border-radius: 16px;
+  background: #0d100d;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.projects-page-card:hover { border-color: var(--acid); transform: translateY(-4px); }
+.projects-page-card .project-card-content { min-height: 386px; }
+.projects-page-card .project-card-description { min-height: 92px; font-size: 12px; }
+.projects-page-card .project-card-preview { height: 176px; }
+.projects-page-card .project-card-foot { min-height: 48px; }
+
+.projects-page-details {
+  margin-top: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--muted);
+  background: var(--surface);
+}
+
+.projects-page-details summary {
+  display: flex;
+  padding: 11px 14px;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink);
+  font: 500 10px/1.5 var(--font-mono);
+  cursor: pointer;
+  list-style: none;
+}
+
+.projects-page-details summary::-webkit-details-marker { display: none; }
+.projects-page-details summary::after { content: '+'; color: var(--acid); font-size: 15px; line-height: 1; }
+.projects-page-details[open] summary::after { content: '−'; }
+.projects-page-details dl { margin: 0; padding: 0 14px 14px; }
+.projects-page-details dl > div { padding: 10px 0; border-top: 1px solid var(--line); }
+.projects-page-details dt { margin-bottom: 3px; color: var(--acid); font: 500 9px var(--font-mono); text-transform: uppercase; }
+.projects-page-details dd { margin: 0; font: 400 12px/1.55 var(--font-sans); }
+
+@media (max-width: 900px) { .projects-page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) {
+  .projects-page-intro { padding: 60px 0 36px; }
+  .projects-page-intro h1 { font-size: clamp(3.2rem, 13vw, 5rem); }
+  .projects-page-grid { padding: 26px 0 72px; grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .projects-page-card { transition: none; } }
